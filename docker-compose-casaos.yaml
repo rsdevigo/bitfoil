@@ -5,18 +5,14 @@ services:
     environment:
       - NGINX_USER=myuser
       - NGINX_PASSWORD=mypassword
-    build:
-      context: nginx
-      dockerfile: Dockerfile
+    image: rsdevigo/bitfoil-nginx:latest
     volumes:
       - ./games:/games
     ports:
       - "8065:80"
   bitfoil-indexer:
     container_name: bitfoil-shop
-    build:
-      context: shop
-      dockerfile: Dockerfile
+    image: rsdevigo/bitfoil-indexer:latest
     environment:
       - SHOP_PATH=/games
       - SHOP_MOTD=Welcome to Bitfoil, the byte-sized shop!
@@ -24,9 +20,7 @@ services:
       - ./games:/games
   bitfoil-torrent:
     container_name: bitfoil-torrent
-    build:
-      context: torrent
-      dockerfile: Dockerfile
+    image: rsdevigo/bitfoil-torrent:latest
     environment:
       - TORRENT_PATH=/torrents
       - TORRENT_JSON_FILE=torrents.json

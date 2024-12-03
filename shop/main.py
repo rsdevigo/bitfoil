@@ -7,7 +7,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-os.environ['TZ'] = 'Europe/Madrid'
+os.environ['TZ'] = 'America/Campo_Grande'
 
 scheduler = BlockingScheduler()
 
